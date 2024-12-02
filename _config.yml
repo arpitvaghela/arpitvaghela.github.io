@@ -23,14 +23,11 @@ name: Arpitsinh Vaghela
 position: PhD Student
 email: avaghel3@asu.edu
 description: >-
-  I'm an incoming PhD student at the ASU 
-  Active Perception Group led by Dr. Yezhou Yang.
-  My research interests focus on computer vision, 
-  particularly 3D perception.
-
+I am a first-year PhD student at the Active Perception Group at Arizona State University, advised by Dr. Yezhou Yang. My research interests center on computer vision, with a focus on 3D reconstruction and perception.
 
   I earned my Master's degree in Computer Science from Arizona 
-  State University in 2024, following my Bachelor's degree in 
+  State University in 2024 with Thesis titled "Multi-Camera Bird-Eye-View Occupancy Detection for Intelligent Transportation System"
+ under the guidance of Dr. Yezhou Yang. I earned my Bachelor's degree in 
   Information and Communication Technology from Ahmedabad University, 2022.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://arpitvaghela.github.io" # the base hostname & protocol for your site, e.g. http://example.com
