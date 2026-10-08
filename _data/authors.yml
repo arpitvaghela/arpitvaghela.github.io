@@ -3,43 +3,56 @@ arpitvaghela:
   last_name: Vaghela
   website: https://arpitvaghela.github.io
   is_me: true
+
 aayushverma:
   first_name: Aayush
+  middle_name: Atul
   last_name: Verma
   website: https://aayush-v.github.io
+
 bharateshchakravarthi:
   first_name: Bharatesh
   last_name: Chakravarthi
   website: https://chakravarthi589.github.io
+
+kaustavchanda:
+  first_name: Kaustav
+  last_name: Chanda
+
+chiyaohuang:
+  first_name: Chi-Yao
+  last_name: Huang
+
 huawei:
   first_name: Hua
   last_name: Wei
   website: https://www.public.asu.edu/~hwei27/
+
 yezhouyang:
   first_name: Yezhou
   last_name: Yang
   website: https://faculty.engineering.asu.edu/yezhouyang/
+
 manideepalimati:
   first_name: Manideep Reddy
   last_name: Alimati
-  # website: https://jonbarron.info
+
 xuesongzhou:
   first_name: Xuesong
   last_name: Zhou
-  # website: http://sofienbouaziz.com/
+
 tiejinchen:
-  first_name: Teijin
+  first_name: Tiejin
   last_name: Chen
-  # website: https://utkarshsinha.com/
+
 prithvishirke:
   first_name: Prithvi
   last_name: Shirke
-  # website: https://www.danbgoldman.com/home/
+
 longchaoda:
-  first_name: Long
-  last_name: Chaoda
-  # website: https://cs.gmu.edu/~amousavi/
+  first_name: Longchao
+  last_name: Da
+
 duolu:
   first_name: Duo
   last_name: Lu
-  # website: https://yuxng.github.io/

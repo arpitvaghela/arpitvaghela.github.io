@@ -2,202 +2,174 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>{{ site.name }}</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+  <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 200 }}">
+  <meta name="author" content="{{ site.name }}">
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.name }}">
+  <meta property="og:description" content="{{ site.description | strip_html | strip_newlines | truncate: 200 }}">
+  <meta property="og:image" content="{{ '/images/portrait.jpg' | absolute_url }}">
+  <meta name="twitter:card" content="summary">
 
-    gtag('js', new Date());
-
-    gtag('config', '{{ site.google_analytics }}');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="{{ '/css/fontawesome.all.min.css' | relative_url }}" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
-  <link href="{{ '/css/bulma.min.css' | relative_url }}" rel="stylesheet">
-  <link href="{{ '/css/index.css' | relative_url }}" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script defer src="{{ '/js/fontawesome.all.min.js' | relative_url }}"></script>
-  <script src="{{ '/js/index.js' | relative_url }}"></script>
+  <link rel="icon" href="{{ '/assets/mark.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 </head>
 
 <body>
+{% include icons.html %}
 
-  <section class="hero">
-    <div class="hero-body container is-max-desktop">
-      <div class="columns is-vcentered">
+<a class="skip" href="#main">Skip to content</a>
 
-        <div class="column is-4">
-          <div class="portrait">
-            <img src="{{ '/images/portrait.jpg' | relative_url }}" />
-          </div>
-        </div>
+<nav class="nav">
+  <a class="nav__mark" href="#top">
+    <svg class="nav__glyph" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="13.59" r="3.888" fill="#4D4DD5"/>
+      <path d="M12 6.52 18.84 9.62 12 12.71 5.16 9.62Z" fill="#CCCCFF"/>
+    </svg>
+    <span>{{ site.name }}</span>
+  </a>
+  <div class="nav__links">
+    <a class="pill" aria-label="Google Scholar" href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
+      <svg class="icon"><use href="#i-scholar"/></svg><span>Scholar</span></a>
+    <a class="pill" aria-label="Resume (PDF)" href="{{ '/assets/Resume.pdf' | relative_url }}">
+      <svg class="icon"><use href="#i-pdf"/></svg><span>Resume</span></a>
+    <a class="pill" aria-label="GitHub profile" href="https://github.com/{{ site.github_username }}">
+      <svg class="icon"><use href="#i-github"/></svg><span>GitHub</span></a>
+    <a class="pill" aria-label="Email" href="mailto:{{ site.email }}">
+      <svg class="icon"><use href="#i-mail"/></svg><span>Email</span></a>
+  </div>
+</nav>
 
-        <div class="column">
-          <h1 class="title">
-            <b>Hello, I'm {{ site.name }}</b>
-          </h1>
-          <div class="content has-text-justified">
-            {{ site.description | markdownify }}
-            <div class="buttons">
-              <!-- <a class="external-link button is-light" href="cv.html">
-                <span class="icon"><i class="fas fa-file"></i></span>
-                <span>CV</span>
-              </a> -->
-              
-              <a class="external-link button is-light"
-                href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
-                <span class="icon"><i class="ai ai-google-scholar"></i></span>
-                <span>Scholar</span>
-              </a>
+<main id="main">
 
-              <a class="external-link button is-light" href="https://github.com/{{ site.github_username }}">
-                <span class="icon"><i class="fab fa-github"></i></span>
-                <span>Github</span>
-              </a>
+<header class="hero" id="top">
+  <div class="wrap hero__grid">
+    <figure class="portrait">
+      <img src="{{ '/images/portrait.jpg' | relative_url }}" width="800" height="800"
+           alt="Portrait of {{ site.name }}">
+    </figure>
 
-              <a class="external-link button is-light" href="https://twitter.com/{{ site.twitter_username }}">
-                <span class="icon"><i class="fab fa-twitter"></i></span>
-                <span>Twitter</span>
-              </a>
-            </div>
+    <div>
+      <h1 class="hero__name"><span>{{ site.given_name }}</span><span class="hero__surname">{{ site.family_name }}</span></h1>
+      <p class="hero__role">{{ site.position }}</p>
+      <p class="hero__affil">{{ site.affiliation }}</p>
 
-          </div>
-        </div>
+      <div class="hero__bio">{{ site.description | markdownify }}</div>
+
+      <div class="actions">
+        <a class="pill pill--primary" href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
+          <svg class="icon"><use href="#i-scholar"/></svg>Google Scholar</a>
+        <a class="pill" href="{{ '/assets/Resume.pdf' | relative_url }}">
+          <svg class="icon"><use href="#i-pdf"/></svg>Resume</a>
+        <a class="pill" href="https://github.com/{{ site.github_username }}">
+          <svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+        <a class="pill" href="mailto:{{ site.email }}">
+          <svg class="icon"><use href="#i-mail"/></svg>Email</a>
       </div>
-    </div>
-  </section>
-
-  <!-- News. -->
-  <div class="hr">
-    <div class="container">
-      <hr>
     </div>
   </div>
+</header>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-
-      <!--<h2 class="title is-3">News</h2>
-      <div class="content">
-        <ul>
-          {% for news in site.data.news %}
-          <li>
-            <b>{{ news.date }}</b>: {{ news.description | markdownify | remove: '<p>' | remove: '</p>' }}
-          </li>
-          {% endfor %}
-        </ul>
-      </div>-->
-
-      <h2 class="title is-3">Publications</h2>
-
-      {% for publication in site.data.publications %}
-      <div class="publication-block columns">
-
-        <div class="column is-2">
-          <div class="publication-image {% if publication.image_mouseover %}publication-mousecell{% endif %}">
-            {% if publication.image_mouseover contains "mp4" %}
-            <video autoplay preload playsinline class="" height="100%" loop muted width="100%">
-              <source src="./images/{{ publication.image_mouseover }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            {% endif %}
-            <img alt="{{ publication.title }}" src="./images/{{ publication.image }}" />
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="content">
-            <h3 class="publication-title"><a href="{{ publication.project_page }}">{{ publication.title }}</a></h3>
-            <div class="publication-authors">
-              {% for author_id in publication.authors %}
-              {% assign author = site.data.authors[author_id] %}
-              <span class="author-block {% if author.is_me %}author-me{% endif %}">
-                {% if author.is_me %}
-                {{ author.first_name }} {{author.middle_name}} {{ author.last_name }}{% if forloop.last == false %},{%
-                endif %}
-                {% else %}
-                <a href="{{ author.website }}">{{ author.first_name }} {{ author.middle_name }} {{ author.last_name
-                  }}</a>{% if forloop.last == false %},{% endif %}
-                {% endif %}
-              </span>
-              {% endfor %}
-            </div>
-            <div class="publication-venue">
-              <span>{{ publication.venue }}</span>
-              {% for award in publication.awards %}
-                <span class="publication-venue-emph">{{ award }}<span>
-              {% endfor %}
-            </div>
-            <p class="publication-description">{{ publication.description }}</p>
-            <!-- Publication Links. -->
-            <div class="publication-links buttons field has-addons">
-              <a class="external-link button is-small is-ghost" href="{{ publication.project_page }}">
-                <span class="icon"><i class="fas fa-globe-asia"></i></span>
-                <span>Project Page</span>
-              </a>
-              <a class="external-link button is-small is-ghost" href="https://arxiv.org/pdf/{{ publication.arxiv }}.pdf">
-                <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                <span>PDF</span>
-              </a>
-              <a class="external-link button is-small is-ghost" href="https://arxiv.org/abs/{{ publication.arxiv }}">
-                <span class="icon"><i class="ai ai-arxiv"></i></span>
-                <span>arXiv</span>
-              </a>
-              {% if publication.github %}
-              <a class="external-link button is-small is-ghost" href="https://github.com/{{ publication.github }}">
-                <span class="icon"><i class="fa fab fa-github"></i></span>
-                <span>Code</span>
-              </a>
-              {% endif %}
-            </div>
-            <!--/ Publication Links. -->
-          </div>
-        </div>
-      </div>
+{% if site.data.news and site.data.news.size > 0 %}
+<section class="section" id="news">
+  <div class="wrap">
+    <p class="section__eyebrow">Recent</p>
+    <h2 class="section__title">News</h2>
+    <ul class="news">
+      {% for item in site.data.news %}
+      <li><b>{{ item.date }}</b> — {{ item.description | markdownify | remove: '<p>' | remove: '</p>' }}</li>
       {% endfor %}
-    </div>
-  </section>
+    </ul>
+  </div>
+</section>
+{% endif %}
 
+<section class="section" id="publications">
+  <div class="wrap">
+    <p class="section__eyebrow">Research</p>
+    <h2 class="section__title">Publications</h2>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="content footer-links has-text-centered">
-        <a href="mailto:{{ site.email }}">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a class="external-link" href="https://github.com/{{ site.github_username }}">
-          <i class="fab fa-github"></i>
-        </a>
-        <a class="external-link" href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
-          <i class="ai ai-google-scholar"></i>
-        </a>
-      </div>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              Feel free to <a href="https://github.com/keunhong/keunhong.github.io">borrow this template</a>.
-            </p>
-          </div>
+    {% for publication in site.data.publications %}
+    <article class="pub">
+
+      {% if publication.image %}
+      <figure class="pub__media {% if publication.image_mouseover %}has-video{% endif %}">
+        {% if publication.image_mouseover %}
+        <video autoplay loop muted playsinline preload="none"
+               src="{{ '/images/' | append: publication.image_mouseover | relative_url }}"></video>
+        {% endif %}
+        <img src="{{ '/images/' | append: publication.image | relative_url }}" loading="lazy"
+             alt="Thumbnail for {{ publication.title }}">
+      </figure>
+      {% else %}
+      <div class="pub__media pub__media--empty" role="img"
+           aria-label="No thumbnail available for {{ publication.title }}"><span>et al.</span></div>
+      {% endif %}
+
+      <div>
+        <h3 class="pub__title">{{ publication.title }}</h3>
+
+        <p class="pub__venue"><span class="pub__venue-name">{{ publication.venue }}</span>{% for award in publication.awards %}<span class="pub__award">{{ award }}</span>{% endfor %}</p>
+
+        <p class="pub__authors">
+          {% for author_id in publication.authors %}{% assign author = site.data.authors[author_id] %}{%- capture name -%}
+          {{ author.first_name }}{% if author.middle_name %} {{ author.middle_name }}{% endif %} {{ author.last_name }}
+          {%- endcapture -%}
+          {% if author.is_me %}<span class="me">{{ name | strip }}</span>{% elsif author.website %}<a href="{{ author.website }}">{{ name | strip }}</a>{% else %}{{ name | strip }}{% endif %}{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </p>
+
+        {% if publication.description %}<p class="pub__desc">{{ publication.description }}</p>{% endif %}
+
+        <div class="pub__links">
+          {% if publication.project_page %}
+          <a class="pill pill--sm" href="{{ publication.project_page }}">
+            <svg class="icon"><use href="#i-globe"/></svg>Project page</a>
+          {% endif %}
+          {% if publication.pdf %}
+          <a class="pill pill--sm" href="{{ publication.pdf }}">
+            <svg class="icon"><use href="#i-pdf"/></svg>PDF</a>
+          {% elsif publication.arxiv %}
+          <a class="pill pill--sm" href="https://arxiv.org/pdf/{{ publication.arxiv }}.pdf">
+            <svg class="icon"><use href="#i-pdf"/></svg>PDF</a>
+          {% endif %}
+          {% if publication.arxiv %}
+          <a class="pill pill--sm" href="https://arxiv.org/abs/{{ publication.arxiv }}">
+            <svg class="icon"><use href="#i-arxiv"/></svg>arXiv</a>
+          {% endif %}
+          {% if publication.github %}
+          <a class="pill pill--sm" href="https://github.com/{{ publication.github }}">
+            <svg class="icon"><use href="#i-code"/></svg>Code</a>
+          {% endif %}
         </div>
       </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__links">
+      <a href="mailto:{{ site.email }}" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
+      <a href="https://github.com/{{ site.github_username }}" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+      <a href="https://scholar.google.com/citations?user={{ site.google_scholar }}" aria-label="Google Scholar"><svg class="icon"><use href="#i-scholar"/></svg></a>
+      <a href="{{ '/assets/Resume.pdf' | relative_url }}" aria-label="Resume (PDF)"><svg class="icon"><use href="#i-pdf"/></svg></a>
     </div>
-  </footer>
+  </div>
+</footer>
 
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
-
 </html>

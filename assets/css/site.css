@@ -1,0 +1,340 @@
+/* ===========================================================
+   arpitvaghela.github.io
+   Shares the design system of the project pages: paper ground,
+   Literata for prose, Inter for interface, periwinkle accent.
+   =========================================================== */
+
+:root {
+  --paper:   #FFFAFA;
+  --paper-2: #F9F0F0;
+  --plate:   #FFFFFF;
+  --ink:     #1C1B16;
+  --ink-2:   #56544A;
+  --ink-3:   #8C8A7E;
+  --rule:      rgba(28, 27, 22, .16);
+  --rule-soft: rgba(28, 27, 22, .085);
+
+  /* Periwinkle in two steps of one hue. The tint only reaches 1.5:1 on the
+     paper, so it fills behind dark text while the deeper step is the text. */
+  --accent:      #4D4DD5;
+  --accent-tint: #CCCCFF;
+
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --gutter: clamp(20px, 5vw, 56px);
+  --max:    1000px;
+  --measure: 68ch;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.62;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--ink);
+  text-decoration-color: rgba(77, 77, 213, .5);
+  text-underline-offset: .2em;
+  text-decoration-thickness: 1px;
+  transition: color .16s ease, text-decoration-color .16s ease;
+}
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+strong, b { font-weight: 600; }
+
+.skip { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: 10px 18px; z-index: 200; }
+.skip:focus { left: 12px; top: 12px; }
+
+.icon { width: 1em; height: 1em; flex: none; fill: currentColor; }
+
+/* --- nav ---------------------------------------------------- */
+
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; gap: 16px;
+  padding: 10px var(--gutter);
+  background: rgba(255, 250, 250, .88);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--sans);
+}
+.nav__mark {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: 13.5px;
+  text-decoration: none; white-space: nowrap; flex: none;
+}
+.nav__mark:hover { color: var(--ink); }
+.nav__glyph { width: 22px; height: 22px; flex: none; }
+.nav__links { margin-left: auto; display: flex; gap: 7px; flex: none; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13.5px; font-weight: 500;
+  text-decoration: none; color: var(--ink);
+  background: transparent; white-space: nowrap;
+  transition: border-color .16s ease, background .16s ease, color .16s ease;
+}
+.pill:hover { border-color: var(--accent); background: rgba(77, 77, 213, .08); color: var(--accent); }
+.pill--primary { background: var(--accent-tint); border-color: var(--accent-tint); color: var(--ink); font-weight: 600; }
+.pill--primary:hover { background: #AAAAFA; border-color: #AAAAFA; color: var(--ink); }
+.pill--sm { padding: 5px 11px; font-size: 12.5px; gap: 6px; }
+
+@media (max-width: 620px) {
+  .nav__mark span { display: none; }
+  /* four pills no longer fit a phone width: drop to icons only */
+  .nav__links { gap: 6px; }
+  .nav__links .pill { padding: 7px; }
+  .nav__links .pill span { display: none; }
+}
+
+/* --- hero ---------------------------------------------------- */
+
+.hero { padding: clamp(34px, 5vw, 62px) 0 clamp(30px, 4.4vw, 50px); }
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .hero__grid { grid-template-columns: 1fr; gap: 24px; }
+  .portrait { max-width: 190px; }
+}
+
+.portrait {
+  margin: 0;
+  background: var(--plate);
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  padding: 6px;
+}
+.portrait img { display: block; width: 100%; height: auto; border-radius: 2px; }
+
+/* Given name and surname stack on two lines: the surname steps in by 0.3em and
+   up by three weights, so the pair reads as one name rather than two words. */
+.hero__name {
+  font-weight: 300;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: .9;
+  letter-spacing: -.032em;
+  margin: 0 0 clamp(14px, 2vw, 18px);
+}
+.hero__name span { display: block; }
+.hero__name .hero__surname { margin-left: .3em; font-weight: 600; }
+
+.hero__role {
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.3;
+  letter-spacing: -.014em;
+  margin: 0 0 2px;
+}
+.hero__affil {
+  font-family: var(--sans);
+  font-size: 14px; font-weight: 500;
+  letter-spacing: -.002em;
+  color: var(--ink-2);
+  margin: 0 0 clamp(18px, 2.6vw, 22px);
+}
+.hero__bio {
+  font-family: var(--sans);
+  font-size: 15.5px; line-height: 1.6; letter-spacing: -.004em;
+  color: var(--ink-2);
+  max-width: var(--measure);
+  margin-bottom: clamp(20px, 2.8vw, 26px);
+}
+.hero__bio p { margin-bottom: .8em; }
+/* Research focus on a tint band — the same periwinkle as the primary pill, so it
+   reads as a highlight rather than a link. box-decoration-break keeps the padding
+   on both fragments when the phrase wraps. */
+.hero__bio .hero__key {
+  background: var(--accent-tint);
+  color: var(--ink);
+  font-weight: 600;
+  padding: .08em .3em;
+  margin: 0 -.08em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hero__bio p:last-child { margin-bottom: 0; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* --- sections ------------------------------------------------ */
+
+.section { padding: clamp(34px, 4.6vw, 58px) 0; border-top: 1px solid var(--rule-soft); }
+[id] { scroll-margin-top: 66px; }
+
+.section__eyebrow {
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  margin: 0 0 10px;
+}
+.section__title {
+  font-weight: 400;
+  font-size: clamp(28px, 3.8vw, 40px);
+  line-height: 1.17;
+  letter-spacing: -.018em;
+  margin: 0 0 clamp(20px, 2.6vw, 30px);
+}
+
+/* --- publications -------------------------------------------- */
+
+.pub {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: clamp(18px, 2.8vw, 32px);
+  padding: clamp(20px, 2.6vw, 28px) 0;
+  border-top: 1px solid var(--rule-soft);
+  align-items: start;
+}
+.pub:first-of-type { border-top: 0; padding-top: 0; }
+@media (max-width: 720px) {
+  .pub { grid-template-columns: 1fr; gap: 14px; }
+  .pub__media { max-width: 320px; }
+}
+
+.pub__media {
+  margin: 0;
+  background: var(--plate);
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.pub__media img, .pub__media video { display: block; width: 100%; height: auto; border-radius: 2px; }
+.pub__media video { display: none; }
+.pub__media.has-video:hover video { display: block; }
+.pub__media.has-video:hover img { display: none; }
+
+/* Stands in when an entry has no thumbnail. Drawn in CSS rather than SVG: the
+   slot changes shape between breakpoints, and a fixed viewBox would letterbox
+   itself into a small square on the wide mobile band. */
+.pub__media--empty {
+  /* Rule and label share one token, so they can never drift apart. */
+  --ph: rgba(77, 77, 213, .3);
+  position: relative;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  background: transparent;
+  border: 1.5px solid var(--ph);
+}
+.pub__media--empty span {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 27.5px;   /* 1.25x */
+  letter-spacing: -.012em;
+  line-height: 1;
+  color: var(--ph);
+}
+/* Stacked on a phone the 4:3 box becomes a large void; flatten it to a band. */
+@media (max-width: 720px) {
+  .pub__media--empty { aspect-ratio: 16 / 5; max-width: 100%; }
+}
+
+/* Title leads. Venue sits between it and the authors, underlined in the accent
+   at regular weight. Authors are the lightest thing in the card. */
+.pub__title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.26;
+  letter-spacing: -.016em;
+  margin: 0 0 7px;
+}
+.pub__venue {
+  font-family: var(--sans);
+  font-size: 12px; font-weight: 400;
+  color: var(--accent);
+  line-height: 1.5;
+  margin: 0 0 5px;
+}
+/* Named, not a bare `span` -- that also matched the award badge sitting
+   beside it and underlined the pill. */
+.pub__venue-name {
+  text-decoration: underline;
+  text-decoration-color: rgba(77, 77, 213, .45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.pub__award {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 1.5px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  vertical-align: 1px;
+}
+
+.pub__authors {
+  font-family: var(--sans);
+  font-size: 12px; line-height: 1.55;
+  color: var(--ink-3);
+  margin: 0;
+}
+.pub__authors a { color: var(--ink-3); text-decoration: none; }
+.pub__authors a:hover { color: var(--accent); text-decoration: underline; }
+.pub__authors .me { font-weight: 700; color: var(--ink); }
+
+.pub__desc { font-size: 13.5px; color: var(--ink-2); margin: 8px 0 0; max-width: var(--measure); }
+.pub__links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+
+/* --- footer --------------------------------------------------- */
+
+.foot {
+  border-top: 1px solid var(--rule-soft);
+  padding: 28px 0 44px;
+  font-family: var(--sans);
+  font-size: 13px; color: var(--ink-3);
+}
+.foot__links { display: flex; gap: 10px; margin-bottom: 16px; }
+.foot__links a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--rule); border-radius: 999px;
+  color: var(--ink); font-size: 15px;
+  transition: border-color .16s ease, background .16s ease, color .16s ease;
+}
+.foot__links a:hover { border-color: var(--accent); background: rgba(77, 77, 213, .08); color: var(--accent); }
+
+@media (max-width: 620px) { body { font-size: 16.5px; } }

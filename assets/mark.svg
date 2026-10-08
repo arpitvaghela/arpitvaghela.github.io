@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Scholar board over a circle, in the two periwinkles: the circle carries the
+       accent so it stays the subject, with the board resting on it in the tint. -->
+  <circle cx="12" cy="13.59" r="3.888" fill="#4D4DD5"/>
+  <path d="M12 6.52 18.84 9.62 12 12.71 5.16 9.62Z" fill="#CCCCFF"/>
+</svg>

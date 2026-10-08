@@ -69,3 +69,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Local dev server config
+.claude/

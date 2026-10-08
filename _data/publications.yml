@@ -1,25 +1,41 @@
+- id: egdr
+  title: "Event-Guided Dynamic Reconstruction under Extreme Motion Blur"
+  venue: Workshop on Physical World AI, Conference on Neural Information Processing Systems (NeurIPS), 2026
+  project_page: https://arpitvaghela.github.io/event-guided-dynamic-reconstruction/
+  pdf: https://arpitvaghela.github.io/event-guided-dynamic-reconstruction/assets/pdf/event-guided-dynamic-reconstruction.pdf
+  github: arpitvaghela/event-guided-dynamic-reconstruction
+  # arxiv:              # TODO: add the arXiv id once the preprint is live
+  image: egdr_thumbnail.webp
+  authors:
+    - arpitvaghela
+    - aayushverma
+    - kaustavchanda
+    - chiyaohuang
+    - duolu
+    - bharateshchakravarthi
+    - yezhouyang
+
 - id: etram
   title: "eTraM: Event-based Traffic Monitoring Dataset"
-  venue: CVPR, 2024 (Highlight)
-  # description: "3D relighting by distilling samples from a 2D image relighting diffusion model into a latent-variable NeRF."
+  venue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024
+  awards:
+    - Highlight
   project_page: https://eventbasedvision.github.io/eTraM/
-  arxiv: 2403.19976
+  arxiv: "2403.19976"
   image: eTraM_thumbnail.jpg
-  # image_mouseover: illuminerf_after.mp4
   authors:
     - aayushverma
     - bharateshchakravarthi
     - arpitvaghela
     - huawei
     - yezhouyang
+
 - id: sevd
   title: "SEVD: Synthetic Event-based Vision Dataset for Ego and Fixed Traffic Perception"
-  venue: CVPRW, 2024
-  # description: "Using an multi-view image conditioned diffusion model to regularize a NeRF enabled few-view reconstruction."
+  venue: IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2024
   project_page: https://eventbasedvision.github.io/SEVD/
-  arxiv: 2404.10540
+  arxiv: "2404.10540"
   image: SEVD_thumbnail.png
-  # image_mouseover: reconfusion_after.mp4
   authors:
     - manideepalimati
     - bharateshchakravarthi
@@ -28,14 +44,13 @@
     - huawei
     - xuesongzhou
     - yezhouyang
+
 - id: syntrac
   title: "SynTraC: A Synthetic Dataset for Traffic Signal Control from Traffic Monitoring Cameras"
-  venue: ITSC, 2024
-  # description: "Preconditioning camera optimization during NeRF training significantly improves their ability to jointly recover the scene and camera parameters."
-  # project_page: "https://camp-nerf.github.io"
+  venue: IEEE International Conference on Intelligent Transportation Systems (ITSC), 2024
   github: DaRL-LibSignal/SynTraC
-  arxiv: 2408.09588
-  image: camp_before.jpg
+  arxiv: "2408.09588"
+  # image:               # TODO: add a thumbnail; camp_before.jpg was never in the repo
   authors:
     - tiejinchen
     - prithvishirke
