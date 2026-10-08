@@ -221,7 +221,6 @@ strong, b { font-weight: 600; }
   border-top: 1px solid var(--rule-soft);
   align-items: start;
 }
-.pub:first-of-type { border-top: 0; padding-top: 0; }
 @media (max-width: 720px) {
   .pub { grid-template-columns: 1fr; gap: 14px; }
   .pub__media { max-width: 320px; }
