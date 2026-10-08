@@ -1,5 +1,5 @@
 # Site settings -------------------------------------------------------------
-title: Arpitsinh Vaghela
+title: "it's me, Arpit."
 name: Arpitsinh Vaghela
 position: PhD Student
 affiliation: Active Perception Group, Arizona State University
@@ -12,7 +12,7 @@ description: >
   models can reconstruct and edit dynamic scenes from imperfect real-world capture.
 
 
-  From pictures to worlds.
+  <span class="hero__say">From pictures to worlds.</span>
 
 baseurl: ""
 url: "https://arpitvaghela.github.io"

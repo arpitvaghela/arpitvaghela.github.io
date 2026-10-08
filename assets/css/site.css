@@ -191,6 +191,19 @@ strong, b { font-weight: 600; }
 }
 .hero__bio p:last-child { margin-bottom: 0; }
 
+/* Closing line washed from the tint into the accent. Falls back to solid accent
+   where background-clip: text is unsupported. */
+.hero__bio .hero__say {
+  font-weight: 600;
+  color: var(--accent);
+  background-image: linear-gradient(96deg, var(--accent-tint) 0%, var(--accent) 72%);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .hero__bio .hero__say { color: transparent; }
+}
+
 .actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* --- sections ------------------------------------------------ */
